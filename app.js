@@ -18,7 +18,7 @@ var indexRoutes      = require("./routes/index"),
     
 console.log(process.env.DATABASEURL);
 
-mongoose.connect('mongodb://localhost:27017/yelp_camp_v12Deployed', { useNewUrlParser: true });
+mongoose.connect(process.env.DATABASEURL, { useNewUrlParser: true });
 //mongoose.connect('mongodb://ivan:aiarredondo1@ds133642.mlab.com:33642/yelpcamp', { useNewUrlParser: true });
 
 
