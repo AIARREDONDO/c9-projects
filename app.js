@@ -15,12 +15,11 @@ var express        = require("express"),
 var indexRoutes      = require("./routes/index"),
     commentRoutes    = require("./routes/comments"),
     campgroundRoutes = require("./routes/campgrounds");
-    
-console.log(process.env.DATABASEURL);
 
-mongoose.connect(process.env.DATABASEURL, { useNewUrlParser: true });
-//mongoose.connect('mongodb://ivan:aiarredondo1@ds133642.mlab.com:33642/yelpcamp', { useNewUrlParser: true });
-
+//ENVIRONMENT VARIABLE
+//IN CASE DATABASEURL IS NOT AVAILABLE, WE HAVE A BACKUP
+var url = process.env.DATABASEURL || "mongodb://localhost:27017/yelp_camp_v12Deployed"
+mongoose.connect(url, { useNewUrlParser: true });
 
 app.use(bodyParser.urlencoded({extended: true}));
 app.set("view engine", "ejs");
